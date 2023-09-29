@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+ارتباط با ما
+{% endblock title %}
+
+{% block content %}
+
+<!-- logo picture -->
+<p style="text-align: center; align-items: center;">
+    {% load static %}
+    <img style="width: 250px ; height: 250px" src="{% static 'images/logo.jpg' %}" alt="Logo">
+</p>
+
+<h2 style="align-items: right; text-align: right;">
+درباره املاک شهریار
+</h2>
+
+<p style="align-items: right; text-align: right;">
+    املاک شهریار با سابقیه بیشتر از ۱۰ سال در امور کارگزاری و خرید و فروش ملک آماده همکاری و خدمت به شما هموطنان گرامی میباشد. راه های ارتباط با ما:
+    <br>
+    شماره ثابت : 011 43083888
+    <br>
+    شماره همراه : 09111255238
+</p>
+
+<!-- Carousel Part -->
+<div style="margin: 100px;" id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% load static %}
+      <div class="carousel-item active">
+        <img src="{% static 'images/pic1.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/pic2.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/logo.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+{% endblock content %}
