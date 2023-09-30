@@ -64,8 +64,8 @@
         </div>
         <div style="margin-top: 10px;" class="col"></div>
         <div style="margin-top: 10px;" class="col-4">
-          <form style="direction: ltr; align-self: center;" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="ویلای لب دریا" aria-label="Search">
+          <form action="{% url "search_results" %}" method='get' style="direction: ltr; align-self: center;" class="d-flex" role="search">
+            <input name='q' class="form-control me-2" type="text" placeholder="ویلای لب دریا" aria-label="Search">
             <button class="btn btn-warning" type="submit">جستجو</button>
           </form>
         </div>

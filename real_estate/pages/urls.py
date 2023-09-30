@@ -7,4 +7,5 @@ urlpatterns = [
     path('<int:pk>/', FileDetailView.as_view(), name='file_page'),
     path('about/', AboutPageView.as_view(), name='about_page'),
     path('files/', FilesListView.as_view(), name='files_page'),
+    path('search/', SearchListView.as_view(), name='search_results'),
 ]
