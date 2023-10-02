@@ -14,27 +14,27 @@
             <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img style="display: flex; height: 500px;" src={{ case.image.url }} class="d-block w-100" alt="FirstPicture">
+                    <img style="display: flex;" src={{ case.image.url }} class="d-block w-100" alt="FirstPicture">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
                 </div>
                 {% if case.image2 %}
                 <div class="carousel-item">
-                    <img style="display: flex; height: 500px;" src={{ case.image2.url }} class="d-block w-100" alt="NextPicture">
+                    <img style="display: flex; " src={{ case.image2.url }} class="d-block w-100" alt="NextPicture">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
                 </div>
                 {% endif %}
                 {% if case.image3 %}
                 <div class="carousel-item">
-                    <img style="display: flex; height: 500px;" src={{ case.image3.url }} class="d-block w-100" alt="NextPicture">
+                    <img style="display: flex;" src={{ case.image3.url }} class="d-block w-100" alt="NextPicture">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
                 </div>
                 {% endif %}
                 {% if case.image4 %}
                 <div class="carousel-item">
-                    <img style="display: flex; height: 500px;" src={{ case.image4.url }} class="d-block w-100" alt="NextPicture">
+                    <img style="display: flex; " src={{ case.image4.url }} class="d-block w-100" alt="NextPicture">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
                 </div>
@@ -60,6 +60,7 @@
                 <br>
                 شماره همراه : 09111255238
             </p>
+            <p style="text-align: right;">{{case.price_range}}</p>
         </div>
       
     </div>

@@ -3,3 +3,5 @@ from .models import *
 
 
 admin.site.register(CaseModel)
+admin.site.register(LocationCategory)
+admin.site.register(PriceCategory)

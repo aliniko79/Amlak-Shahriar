@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+    دسته بندی ها
+
+{% endblock title %}
+
+{% block content %}
+
+<h1 style="text-align: center; color: gold">همه دسته بندی ها</h1>
+
+<h2 style="text-align: right; color: goldenrod;">بر اساس قیمت</h2>
+
+{% for price_range in price_category %}
+<div class="card  text-bg-dark mb-3" style="width: 18rem; color: yellow; background-color: rgb(77, 75, 75);">
+    <div class="card-body">
+      <h5 style="color: gold;" class="card-title">{{price_range}}</h5>
+      <p class="card-text">{{price_range}}...</p>
+      <a style="color: gold;" href="{% url "price_page" price_range.id %}" class="btn text-bg-secondary text-warning">دیدن ادامه فایل ها...</a>
+    </div>
+  </div>
+  
+{% endfor %}
+
+<hr style="margin-left: 10px; margin-right: 10px;">
+
+<h2 style="text-align: right; color: goldenrod;">بر اساس موقعیت</h2>
+
+<div style="margin: 10px;" class="row row-cols-1 row-cols-md-3 g-4">
+    {% for location in location_category %}
+    <div class="col">
+      <div class="card h-100 text-bg-dark mb-3">
+        {% if location.image %}
+            <img src={{ location.image.url }} class="card-img-top" alt="فایل املاک">
+        {% else %} 
+            {% load static %}
+            <img src="{% static 'images/logo.jpg' %}" class="card-img-top" alt="فایل املاک">
+        {% endif %}
+        
+        <div class="card-body">
+          <h5 class="card-title text-warning">{{ location.location_title }}</h5>
+          <p style="color: goldenrod;" class="card-text">{{ location.location_description|slice:30 }}...</p>
+          <a href={% url "location_page" location.id %} class="btn text-bg-secondary">دیدن ادامه فایل ها...</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
