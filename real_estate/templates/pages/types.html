@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}
-All Files
+    دسته بندی نوعی
 {% endblock title %}
 
+
 {% block content %}
+
 <!-- Styles for pagination. -->
 <style>
     .pagination > li > a
@@ -13,7 +15,7 @@ All Files
         color: goldenrod;
         border-color: yellow
     }
-
+  
     .pagination > li > a:focus,
     .pagination > li > a:hover,
     .pagination > li > span:focus,
@@ -23,48 +25,23 @@ All Files
         background-color: black;
         border-color: yellow;
     }
-
+  
     .pagination > .active > a
     {
         color: black;
         background-color: goldenrod !Important;
         border: solid 1px goldenrod !Important;
     }
-
+  
     .pagination > .active > a:hover
     {
         background-color: goldenrod !Important;
         border: solid 1px goldenrod;
     }
-</style>
-
-<!-- Select search from -->
-<form action="{% url "filtered_results" %}" method='get' style="direction: ltr; align-self: center;" class="d-flex" role="search">
-  {% csrf_token %}
-  <select name="q1" class="form-select" aria-label="Default select example">
-    <option selected value=NULL>بازه قیمتی</option>
-    {% for price_range in price_category %}
-      <option value={{price_range.id}}>{{price_range}}</option>
-    {% endfor %}
-  </select> 
-  <select name="q2" class="form-select" aria-label="Default select example">
-    <option selected value=NULL>موقعیت مکانی</option>
-    {% for location in location_category %}
-      <option value={{location.id}}>{{location}}</option>
-    {% endfor %}
-  </select>
-  <select name="q3" class="form-select" aria-label="Default select example">
-    <option selected value=NULL>نوع ملک</option>
-    {% for type_r in type_categoty %}
-      <option value={{type_r.id}}>{{type_r}}</option>
-    {% endfor %}
-  </select>
-  <button class="btn btn-warning" type="submit">جستجو</button>
-</form>
-
-<!-- This part is for file cards. -->
+  </style>
+  
 <div style="margin: 10px;" class="row row-cols-1 row-cols-md-3 g-4">
-    {% for case in cases%}
+{% for case in cases %}
     <div class="col">
       <div class="card h-100 text-bg-dark mb-3">
         <img src={{ case.image.url }} class="card-img-top" alt="فایل املاک">
@@ -75,7 +52,7 @@ All Files
         </div>
       </div>
     </div>
-    {% endfor %}
+{% endfor %}
 </div>
 
 <!-- Pagination Parts -->
@@ -87,9 +64,9 @@ All Files
             صفحه {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}.
         </span>
     </span>
-</div>
-<!-- Pagination: Part 2 -->
-<nav aria-label="Page navigation example">
+  </div>
+  <!-- Pagination: Part 2 -->
+  <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       
       {% if page_obj.has_previous %}
@@ -98,7 +75,7 @@ All Files
       {% endif %}
       
       <li class="page-item active"><a class="page-link" href="?page={{ page_obj.number }}" aria-current="page">{{ page_obj.number }}</a></li>
-
+  
       {% if page_obj.has_next %}
         <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">{{ page_obj.next_page_number }}</a></li>
         {% if page_obj.number == 1 %}
@@ -106,8 +83,8 @@ All Files
         {% endif %} 
         <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">آخرین صفحه &raquo;</a></li>
       {% endif %}
-
+  
     </ul>
-</nav>
-
+  </nav>
+  
 {% endblock content %}

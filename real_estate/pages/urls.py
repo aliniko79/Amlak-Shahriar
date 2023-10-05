@@ -11,4 +11,6 @@ urlpatterns = [
     path('categories/', CategoryTemplateView.as_view(), name='categories_page'),
     path('categories/price_range/<int:pk>/', PriceRangeListView.as_view(), name='price_page'),
     path('categories/location/<int:pk>/', LocationsListView.as_view(), name='location_page'),
+    path('filtered/', FilteredFilesListView.as_view(), name='filtered_results'),
+    path('categories/type/<int:pk>/', TypesListView.as_view(), name='type_page'),
 ]

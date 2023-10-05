@@ -6,7 +6,7 @@ from django.utils.text import slugify
 class LocationCategory(models.Model):
     location_title = models.CharField(max_length=50)
     location_description = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='images', blank=True, null=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def __str__(self) -> str:
         return self.location_title
@@ -19,6 +19,14 @@ class PriceCategory(models.Model):
         return self.price_range
     
 
+class TypeCategory(models.Model):
+    type_r = models.CharField(max_length=20)
+    type_r_description = models.TextField(null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.type_r
+    
+
 class CaseModel(models.Model):
     """A model for all real estate files."""
     title = models.CharField(max_length=120)
@@ -29,9 +37,10 @@ class CaseModel(models.Model):
     image3 = models.ImageField(upload_to='images', null=True, blank=True, default=None)
     image4 = models.ImageField(upload_to='images', null=True, blank=True, default=None)
     slug = models.SlugField(max_length=32, unique=True, allow_unicode=True, blank=True)
+    # slug = models.UUIDField(default=uuid.uuid4, unique=True)
     location = models.ForeignKey(to=LocationCategory, on_delete=models.PROTECT, blank=True, null=True)
     price_range = models.ForeignKey(to=PriceCategory, on_delete=models.PROTECT, blank=True, null=True, default=2)
-    # slug = models.UUIDField(default=uuid.uuid4, unique=True)
+    type_r = models.ForeignKey(to=TypeCategory, on_delete=models.PROTECT, blank=True, null=True,)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title, allow_unicode=True)

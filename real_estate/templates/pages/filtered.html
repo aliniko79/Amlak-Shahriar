@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+  نتایج فیلتر شده
+{% endblock title %}
+
+{% block content %}
+
+<!-- Styles for pagination. -->
+<style>
+  .pagination > li > a
+  {
+      background-color: dimgray;
+      color: goldenrod;
+      border-color: yellow
+  }
+
+  .pagination > li > a:focus,
+  .pagination > li > a:hover,
+  .pagination > li > span:focus,
+  .pagination > li > span:hover
+  {
+      color: #5a5a5a;
+      background-color: black;
+      border-color: yellow;
+  }
+
+  .pagination > .active > a
+  {
+      color: black;
+      background-color: goldenrod !Important;
+      border: solid 1px goldenrod !Important;
+  }
+
+  .pagination > .active > a:hover
+  {
+      background-color: goldenrod !Important;
+      border: solid 1px goldenrod;
+  }
+</style>
+
+<div style="margin: 10px;" class="row row-cols-1 row-cols-md-3 g-4">
+{% for case in object_list %}
+
+<div class="card text-bg-dark mb-3">
+    <img style="height: 250px;" src="{{ case.image.url }}" class="card-img-top" alt="File image">
+    <div class="card-body">
+    <h5 class="card-title text-warning">{{case.title}}</h5>
+    <p class="card-text text-warning">{{case.description}}</p>
+    <p class="card-text"><small class="text-body-secondary">{{case.date}}</small></p>
+    <a href={{ case.get_absolute_url }} class="btn text-bg-secondary">دیدن فایل</a>
+    </div>
+</div> 
+{% endfor %}
+</div>
+
+
+<!-- Pagination Parts -->
+
+<!-- Pagination: Part 1 -->
+<div style="margin-top: 50px;" class="pagination">
+  <span style="text-align: right; align-items: flex-end;" class="step-links">
+      <span style="text-align: right;" class="current">
+          صفحه {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}.
+      </span>
+  </span>
+</div>
+<!-- Pagination: Part 2 -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1" aria-label="First">&laquo; اولین صفحه</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">{{ page_obj.previous_page_number }}</a></li>
+    {% endif %}
+    
+    <li class="page-item active"><a class="page-link" href="?page={{ page_obj.number }}" aria-current="page">{{ page_obj.number }}</a></li>
+
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">{{ page_obj.next_page_number }}</a></li>
+      {% if page_obj.number == 1 %}
+          <li class="page-item"><a class="page-link" href="?page=3" aria-label="Next">3</a></li>
+      {% endif %} 
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">آخرین صفحه &raquo;</a></li>
+    {% endif %}
+
+  </ul>
+</nav>
+{% endblock content %}

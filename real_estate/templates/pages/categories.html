@@ -10,7 +10,7 @@
 
 <h1 style="text-align: center; color: gold">همه دسته بندی ها</h1>
 
-<h2 style="text-align: right; color: goldenrod;">بر اساس قیمت</h2>
+<h2 style="text-align: right; color: goldenrod; margin: 20px;">بر اساس قیمت</h2>
 
 {% for price_range in price_category %}
 <div class="card  text-bg-dark mb-3" style="width: 18rem; color: yellow; background-color: rgb(77, 75, 75);">
@@ -25,17 +25,17 @@
 
 <hr style="margin-left: 10px; margin-right: 10px;">
 
-<h2 style="text-align: right; color: goldenrod;">بر اساس موقعیت</h2>
+<h2 style="text-align: right; color: goldenrod">بر اساس موقعیت</h2>
 
 <div style="margin: 10px;" class="row row-cols-1 row-cols-md-3 g-4">
     {% for location in location_category %}
     <div class="col">
       <div class="card h-100 text-bg-dark mb-3">
         {% if location.image %}
-            <img src={{ location.image.url }} class="card-img-top" alt="فایل املاک">
+            <img style="height: 100px; width: 200px;"  src={{ location.image.url }} class="card-img-top" alt="فایل املاک">
         {% else %} 
             {% load static %}
-            <img src="{% static 'images/logo.jpg' %}" class="card-img-top" alt="فایل املاک">
+            <img style="height: 100px; width: 200px;" src="{% static 'images/logo.jpg' %}" class="card-img-top" alt="فایل املاک">
         {% endif %}
         
         <div class="card-body">
@@ -47,4 +47,19 @@
     </div>
     {% endfor %}
 </div>
+
+<hr style="margin-left: 10px; margin-right: 10px;">
+
+<h2 style="text-align: right; color: goldenrod; margin: 30px;">بر اساس نوع</h2>
+
+{% for type in type_category %}
+<div class="card  text-bg-dark mb-3" style="width: 18rem; color: yellow; background-color: rgb(77, 75, 75);">
+    <div class="card-body">
+      <h5 style="color: gold;" class="card-title">{{type}}</h5>
+      <p class="card-text">{{type.type_r_description}}...</p>
+      <a style="color: gold;" href="{% url "type_page" type.id %}" class="btn text-bg-secondary text-warning">دیدن ادامه فایل ها...</a>
+    </div>
+  </div>
+  
+{% endfor %}
 {% endblock content %}
