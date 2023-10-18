@@ -31,6 +31,10 @@
         a{
           color: goldenrod;
         }
+        .navbar-toggler-icon
+        {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='goldenrod' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
     </style>
 </head>
 
@@ -54,10 +58,10 @@
                     <a class="nav-link" href="{% url "about_page" %}">درباره ما</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url "files_page" %}">کیس ها</a>
+                    <a class="nav-link" href="{% url "files_page" %}">فایل ها</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url "categories_page" %}">دسته بندی ها</a>
+                    <a class="nav-link" href="{% url "categories_page" %}">دسته بندی</a>
                   </li>
                 </ul>
                 
@@ -65,8 +69,8 @@
             </div>
           </nav>
         </div>
-        <div style="margin-top: 10px;" class="col"></div>
-        <div style="margin-top: 10px;" class="col-4">
+        <div style="margin-top: 10px;" class="col-1"></div>
+        <div style="margin-top: 10px;" class="col-5">
           <form action="{% url "search_results" %}" method='get' style="direction: ltr; align-self: center;" class="d-flex" role="search">
             <input name='q' class="form-control me-2" type="text" placeholder="ویلای لب دریا" aria-label="Search">
             <button class="btn btn-warning" type="submit">جستجو</button>
@@ -86,11 +90,11 @@
         <div class="row">
           <div class="col">
             <p style="align-items: right; text-align: right;">
-              املاک شهریار با سابقیه بیشتر از ۱۰ سال در امور کارگزاری و خرید و فروش ملک آماده همکاری و خدمت به شما هموطنان گرامی میباشد. راه های ارتباط با ما:
+              املاک شهریار با سابقیه بیشتر از 35 سال در امور کارگزاری و خرید و فروش ملک آماده همکاری و خدمت به شما هموطنان گرامی میباشد. راه های ارتباط با ما:
               <br>
-              شماره ثابت : 01143083888
+              شماره ثابت : <a href="tel:01143083888">011,43083888</a>
               <br>
-              شماره همراه : 09111255238
+              شماره همراه : <a href="tel:09111255238">09111255238</a>
             </p>
           </div> 
           <div class="col">
