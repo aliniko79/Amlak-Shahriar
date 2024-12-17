@@ -11,3 +11,9 @@ real_estate/pages/__pycache__/urls.cpython-310.pyc
 real_estate/pages/__pycache__/urls.cpython-310.pyc
 real_estate/pages/__pycache__/views.cpython-310.pyc
 real_estate/real_estate/__pycache__/settings.cpython-310.pyc
+/real_estate/pages/__pycache__
+real_estate/real_estate/__pycache__/settings.cpython-310.pyc
+*.pyc
+*.zip
+*.pyc
+*.pyc

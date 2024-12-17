@@ -3,6 +3,7 @@ from django.db.models.query import QuerySet
 from django.views.generic import TemplateView, DetailView, ListView
 from .models import *
 from django.db.models import Q
+from django.contrib.sitemaps import Sitemap
 
 
 class HomePageView(TemplateView):
