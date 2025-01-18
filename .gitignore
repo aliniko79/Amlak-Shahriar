@@ -17,3 +17,8 @@ real_estate/real_estate/__pycache__/settings.cpython-310.pyc
 *.zip
 *.pyc
 *.pyc
+/real_estate/assets
+/real_estate/staticfiles
+/real_estate/assets
+/real_estate/assets
+/real_estate/assets/admin

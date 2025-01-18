@@ -1,0 +1,31 @@
+
+services:
+  web:
+    environment:
+      - DJANGO_SETTINGS_MODULE=real_estate.settings  # Environment variables
+      - DEBUG=False
+      - ALLOWED_HOSTS=localhost,127.0.0.1,shahriarmelk.ir,www.shahriarmelk.ir
+    build: .
+    ports:
+      - "8000:8000"   # Expose port 8000 on the host machine
+    volumes:
+      - .:/app        # Mount the current directory into the container
+      - ./staticfiles:/staticfiles
+      - ./media:/media
+    restart: unless-stopped
+
+    
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./staticfiles:/staticfiles
+      - ./media:/media
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web
+
+
+volumes:
+  static_volume:  # Declare a named volume for persisting the database
