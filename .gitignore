@@ -1,10 +1,8 @@
-
 *.csh
 *.pyc
 *.pyc
 *.pyc
 *.pyc
-*.txt
 *.pyc
 real_estate/pages/__pycache__/urls.cpython-310.pyc
 *.pyc
@@ -23,3 +21,5 @@ real_estate/real_estate/__pycache__/settings.cpython-310.pyc
 /real_estate/assets
 /real_estate/assets/admin
 /env
+/assets
+/staticfiles
