@@ -29,13 +29,13 @@ services:
       - web
     restart: unless-stopped
 
-    certbot:
-      image: certbot/certbot
-      volumes:
-        - nginx-conf:/etc/nginx/conf.d
-        - certbot-etc:/etc/letsencrypt
-        - certbot-var:/var/lib/letsencrypt
-      entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --nginx --quiet --no-self-upgrade; sleep 12h; done;'"
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --nginx --quiet --no-self-upgrade; sleep 12h; done;'"
 
 volumes:
   nginx-conf:
