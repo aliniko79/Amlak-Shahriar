@@ -28,8 +28,8 @@ SECRET_KEY = 'django-insecure-jxt+pdcnffj+xn1a!nw(z6apt3t8b=_%g!fjk5cwk+q1a*j(%x
 DEBUG = os.getenv('DEBUG', 'False')=='True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
