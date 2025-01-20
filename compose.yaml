@@ -3,7 +3,7 @@ services:
   web:
     environment:
       - DJANGO_SETTINGS_MODULE=real_estate.settings  # Environment variables
-      - DEBUG=True
+      - DEBUG=False
       - ALLOWED_HOSTS=localhost,127.0.0.1,shahriarmelk.ir,www.shahriarmelk.ir
     build: .
     ports:
