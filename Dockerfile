@@ -10,7 +10,7 @@ COPY ./requirements.txt /app/requirements.txt
 # Install Python dependencies
 RUN python -m pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt || echo "Skipping problematic packages" && \
-    pip install gunicorn django django-jazzmin 
+    pip install gunicorn django django-jazzmin Pillow
     # I had to do this because they wouldn't get installed!
 
 # Copy the entire Django project into the container
