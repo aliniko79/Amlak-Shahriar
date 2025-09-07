@@ -28,5 +28,3 @@ services:
     restart: unless-stopped
 
 
-volumes:
-  static_volume:  # Declare a named volume for persisting the database
